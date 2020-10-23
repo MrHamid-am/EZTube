@@ -23,7 +23,7 @@ namespace EZTube.ViewModels.Query_And_Processing
         {
             DownloadsList = new BindableCollection<YouTubeVideo>()
             {
-                new YouTubeVideo("3 Scary Game","Mark","3 scary games number 1 bla bla bla...","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){ProgressState = 50},
+                new YouTubeVideo("3 Scary Game","Mark","3 scary games number 1 bla bla bla... 3 scary games number 1 bla bla bla... 3 scary games number 1 bla bla bla... 3 scary games number 1 bla bla bla... 3 scary games number 1 bla bla bla... 3 scary games number 1 bla bla bla... 3 scary games number 1 bla bla bla... 3 scary games number 1 bla bla bla...","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){ProgressState = 50},
                 new YouTubeVideo("3 Scary Game","Mark","3 scary games number 1 bla bla bla...","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){ProgressState = 25},
                 new YouTubeVideo("3 Scary Game","Mark","3 scary games number 1 bla bla bla...","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){ProgressState = 30},
                 new YouTubeVideo("3 Scary Game","Mark","3 scary games number 1 bla bla bla...","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){ProgressState = 60},
