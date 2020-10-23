@@ -23,64 +23,67 @@
                   Margin="10,0,0,0"/>
 
         <!--ListView-->
-        <ListView Grid.Row="1" 
-                  x:Name="DownloadsList" 
-                  HorizontalContentAlignment="Stretch"
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-            <ListView.ItemTemplate>
-                <DataTemplate DataType="{x:Type model:YouTubeVideo}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <!--Row For Video Base Details-->
-                            <RowDefinition Height="*"/>
-                            <!--Row For ProgressBar-->
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="1"
+                      SnapsToDevicePixels="True"
+                      CanContentScroll="False">
+            <ItemsControl x:Name="DownloadsList" 
+                      HorizontalContentAlignment="Stretch"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type model:YouTubeVideo}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <!--Row For Video Base Details-->
+                                <RowDefinition Height="*"/>
+                                <!--Row For ProgressBar-->
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <materialDesign:Card UniformCornerRadius="10" Padding="10">
-                            <!--Video Base Details-->
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                            <materialDesign:Card UniformCornerRadius="10" Padding="10">
+                                <!--Video Base Details-->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <!--Image Thumb For Video-->
-                                <Image Source="{Binding VideoThumb}"
+                                    <!--Image Thumb For Video-->
+                                    <Image Source="{Binding VideoThumb}"
                                            MaxWidth="50"
                                            Margin="10,0,0,0"/>
 
-                                <!--Panel For Video Details!-->
-                                <StackPanel Grid.Column="1"
+                                    <!--Panel For Video Details!-->
+                                    <StackPanel Grid.Column="1"
                                             Margin="10,0,20,30">
-                                    <StackPanel.Resources>
-                                        <Style TargetType="TextBlock">
-                                            <Setter Property="TextWrapping" Value="NoWrap"/>
-                                            <Setter Property="TextTrimming" Value="WordEllipsis"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding ElementName=CheckBox,Path=IsChecked}"
+                                        <StackPanel.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="TextWrapping" Value="NoWrap"/>
+                                                <Setter Property="TextTrimming" Value="WordEllipsis"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=CheckBox,Path=IsChecked}"
                                                              Value="True">
-                                                    <Setter Property="TextTrimming" Value="None"/>
-                                                    <Setter Property="TextWrapping" Value="Wrap"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Resources>
-                                    <TextBlock Text="{Binding Title,StringFormat='Video Title: {0}'}" 
+                                                        <Setter Property="TextTrimming" Value="None"/>
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <TextBlock Text="{Binding Title,StringFormat='Video Title: {0}'}" 
                                                FontSize="16" FontWeight="Bold"/>
-                                    <TextBlock Text="{Binding Details,StringFormat='Description: {0}'}"/>
-                                    <TextBlock Text="{Binding Author,StringFormat='Author: {0}'}"/>
-                                </StackPanel>
-                            </Grid>
-                        </materialDesign:Card>
+                                        <TextBlock Text="{Binding Details,StringFormat='Description: {0}'}"/>
+                                        <TextBlock Text="{Binding Author,StringFormat='Author: {0}'}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </materialDesign:Card>
 
-                        <!--ProgressBar-->
-                        <materialDesign:Card Grid.Row="1" Background="White"
+                            <!--ProgressBar-->
+                            <materialDesign:Card Grid.Row="1" Background="White"
                                              UniformCornerRadius="100"
                                              HorizontalAlignment="Center"
                                              Margin="0,-20,0,20">
-                            <Grid>
-                                <ProgressBar Name="ProgressBar" 
+                                <Grid>
+                                    <ProgressBar Name="ProgressBar" 
                                              Value="{Binding ProgressState}"
                                              Style="{DynamicResource MaterialDesignCircularProgressBar}"
                                              Foreground="{StaticResource RedColor}"
@@ -89,16 +92,17 @@
                                              HorizontalAlignment="Center"
                                              IsIndeterminate="True"/>
 
-                                <!--Text in ProgressBar-->
-                                <TextBlock Text="{Binding ElementName=ProgressBar,Path=Value,StringFormat='{}{0}%'}"
+                                    <!--Text in ProgressBar-->
+                                    <TextBlock Text="{Binding ElementName=ProgressBar,Path=Value,StringFormat='{}{0}%'}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"/>
-                            </Grid>
-                        </materialDesign:Card>
-                    </Grid>
+                                </Grid>
+                            </materialDesign:Card>
+                        </Grid>
 
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </UserControl>
