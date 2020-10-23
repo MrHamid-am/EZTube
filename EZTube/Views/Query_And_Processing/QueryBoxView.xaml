@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="EZTube.Views.Query_And_Processing.QueryBoxView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EZTube.Views.Query_And_Processing"
+             xmlns:queryAndProcessing="clr-namespace:EZTube.ViewModels.Query_And_Processing"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=queryAndProcessing:QueryBoxViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--Row for Base Query Box-->
+            <RowDefinition Height="*"/>
+
+            <!--Row for progressbar-->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--Base Query Box-->
+        <Grid Background="{DynamicResource RedColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Card That Holds TextBox And Process Button Together-->
+            <materialDesign:Card Margin="12,12,0,12">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--TextBox-->
+                    <TextBox Foreground="Black"
+                                 VerticalContentAlignment="Center"
+                                 FontSize="16"
+                                 Padding="3"
+                                 materialDesign:HintAssist.Hint="URL or search query (press Shift+Enter to add multiple)"
+                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                 materialDesign:ScrollBarAssist.ButtonsVisibility="Hidden"
+                                 BorderThickness="0"
+                                 MaxLines="4"
+                                 AcceptsReturn="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 PreviewKeyDown="UrlName_OnPreviewKeyDown"
+                                 x:Name="UrlName"/>
+
+                    <!--Process Button-->
+                    <Button Grid.Column="1"
+                            Padding="5"
+                            Style="{DynamicResource MaterialDesignFlatButton}"
+                            Margin="0,0,5,0">
+                        <materialDesign:PackIcon Kind="ArrowRight"
+                                                 Width="24"
+                                                 Height="24"/>
+                    </Button>
+                </Grid>
+            </materialDesign:Card>
+
+            <!--Settings Button-->
+            <Button Grid.Column="1"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
+                    ToolTip="Settings"
+                    Padding="5"
+                    Foreground="{DynamicResource WhiteColor}">
+                <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        Kind="Settings" />
+            </Button>
+        </Grid>
+
+        <!--ProgressBar-->
+        <ProgressBar Grid.Row="1"
+                     Background="Transparent"
+                     IsIndeterminate="{Binding IsIndeterminate}"
+                     Foreground="Green"
+                     BorderThickness="0"/>
+    </Grid>
+</UserControl>
