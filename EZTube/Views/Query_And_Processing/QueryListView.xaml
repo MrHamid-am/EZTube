@@ -10,7 +10,21 @@
              d:Width="600"
              d:DesignHeight="200">
     <Grid>
-        <ListView x:Name="DownloadsList" 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Show More Details if Checked-->
+        <CheckBox Name="CheckBox" 
+                  Content="Show Full Details" 
+                  FlowDirection="RightToLeft"
+                  HorizontalAlignment="Left"
+                  Margin="10,0,0,0"/>
+
+        <!--ListView-->
+        <ListView Grid.Row="1" 
+                  x:Name="DownloadsList" 
                   HorizontalContentAlignment="Stretch"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
@@ -40,9 +54,16 @@
                                 <StackPanel Grid.Column="1"
                                             Margin="10,0,20,30">
                                     <StackPanel.Resources>
-                                        <Style TargetType="{x:Type TextBlock}">
+                                        <Style TargetType="TextBlock">
                                             <Setter Property="TextWrapping" Value="NoWrap"/>
                                             <Setter Property="TextTrimming" Value="WordEllipsis"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=CheckBox,Path=IsChecked}"
+                                                             Value="True">
+                                                    <Setter Property="TextTrimming" Value="None"/>
+                                                    <Setter Property="TextWrapping" Value="Wrap"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
                                         </Style>
                                     </StackPanel.Resources>
                                     <TextBlock Text="{Binding Title,StringFormat='Video Title: {0}'}" 
