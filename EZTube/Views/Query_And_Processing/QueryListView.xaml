@@ -4,27 +4,51 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EZTube.Views.Query_And_Processing"
-             mc:Ignorable="d" >
+             xmlns:model="clr-namespace:EZTube.Models"
+             mc:Ignorable="d" 
+             d:Width="600"
+             d:DesignHeight="200">
     <Grid>
-        <ListView x:Name="DownloadsList">
+        <ListView x:Name="DownloadsList" 
+                  HorizontalContentAlignment="Stretch"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <!--Row For Video Base Details-->
-                            <RowDefinition Height="*"/>
-                            <!--Row For ProgressBar-->
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
-                        <!--Video Base Details-->
+                <DataTemplate DataType="{x:Type model:YouTubeVideo}">
+                    <Border CornerRadius="102">
                         <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <!--Row For Video Base Details-->
+                                <RowDefinition Height="*"/>
+                                <!--Row For ProgressBar-->
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--Video Base Details-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!--Image Thumb For Video-->
+                                <Image Source="{Binding VideoThumb}"
+                                       MaxWidth="50"/>
+
+                                <!--Panel For Video Details!-->
+                                <StackPanel Grid.Column="1"
+                                            HorizontalAlignment="Right">
+                                    <TextBlock Text="{Binding Title}"/>
+                                    <TextBlock Text="{Binding Details}"/>
+                                    <TextBlock Text="{Binding Author}"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <!--ProgressBar-->
+                            <ProgressBar Grid.Row="1" Value="{Binding ProgressState}"
+                                         Foreground="{StaticResource RedColor}"
+                                         Height="20"/>
                         </Grid>
-                    </Grid>
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

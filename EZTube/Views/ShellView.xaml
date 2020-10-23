@@ -22,7 +22,7 @@
             </Grid.RowDefinitions>
 
             <ContentControl x:Name="QueryBox"/>
-            <ContentControl Grid.Row="2" x:Name="QueryList"/>
+            <ContentControl Grid.Row="1" x:Name="QueryList"/>
         </Grid>
     </wpf:DialogHost>
 </Window>
