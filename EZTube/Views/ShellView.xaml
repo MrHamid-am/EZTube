@@ -12,6 +12,8 @@
         Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         d:DataContext="{d:DesignInstance Type=viewModels1:ShellViewModel}"
+        MinWidth="600"
+        MinHeight="550"
         Width="600"
         Height="550">
     <wpf:DialogHost CloseOnClickAway="True">
