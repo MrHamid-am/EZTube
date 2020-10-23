@@ -13,7 +13,7 @@
                     <local:Bootstrapper x:Key="bootstrapper"/>
                 </ResourceDictionary>
 
-                <ResourceDictionary Source="Application_Styles/Base_Styles.xaml"/>
+                <ResourceDictionary Source="ApplicationResources/Base_Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <SolidColorBrush x:Key="RedColor" Color="#FF0000"/>
