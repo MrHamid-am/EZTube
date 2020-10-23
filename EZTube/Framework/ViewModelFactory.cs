@@ -6,7 +6,7 @@ using EZTube.ViewModels.Query_And_Processing;
 
 namespace EZTube.Framework
 {
-    public class ViewModelFactory
+    public class ViewModelFactory:IViewModelFactory
     {
         private readonly IEventAggregator _eventAggregator;
 
