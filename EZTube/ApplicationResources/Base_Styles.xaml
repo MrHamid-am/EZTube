@@ -1,5 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--Basic Colors And Backgrounds ↓-->
+    <Color x:Key="TextColor">#000000</Color>
+    <SolidColorBrush x:Key="PrimaryTextColor" 
+                     Color="{DynamicResource TextColor}"/>
+
     <!--Scroll Bar Style ↓-->
 
     <!--Thumb For Vertical (or Horizontal) Scroll Bar-->
@@ -39,5 +45,10 @@
                 <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <!--TextBox Styles ↓-->
+    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
     </Style>
 </ResourceDictionary>

@@ -33,19 +33,18 @@
                     </Grid.ColumnDefinitions>
 
                     <!--TextBox-->
-                    <TextBox Foreground="Black"
-                                 VerticalContentAlignment="Center"
-                                 FontSize="16"
-                                 Padding="3"
-                                 materialDesign:HintAssist.Hint="URL or search query (press Shift+Enter to add multiple)"
-                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                 materialDesign:ScrollBarAssist.ButtonsVisibility="Hidden"
-                                 BorderThickness="0"
-                                 MaxLines="4"
-                                 AcceptsReturn="True"
-                                 VerticalScrollBarVisibility="Auto"
-                                 PreviewKeyDown="UrlName_OnPreviewKeyDown"
-                                 x:Name="UrlName"/>
+                    <TextBox VerticalContentAlignment="Center"
+                             FontSize="16"
+                             Padding="3"
+                             materialDesign:HintAssist.Hint="URL or search query (press Shift+Enter to add multiple)"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             materialDesign:ScrollBarAssist.ButtonsVisibility="Hidden"
+                             BorderThickness="0"
+                             MaxLines="4"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             PreviewKeyDown="UrlName_OnPreviewKeyDown"
+                             x:Name="UrlName"/>
 
                     <!--Process Button-->
                     <Button Grid.Column="1"
