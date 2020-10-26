@@ -25,7 +25,8 @@
         <!--ListView-->
         <ScrollViewer Grid.Row="1"
                       SnapsToDevicePixels="True"
-                      CanContentScroll="False">
+                      CanContentScroll="False"
+                      VerticalScrollBarVisibility="Hidden">
             <ItemsControl x:Name="DownloadsList" 
                       HorizontalContentAlignment="Stretch"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
