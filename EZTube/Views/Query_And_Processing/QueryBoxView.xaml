@@ -59,7 +59,8 @@
             </materialDesign:Card>
 
             <!--Settings Button-->
-            <Button Grid.Column="1"
+            <Button Name="Settings" 
+                    Grid.Column="1"
                     Style="{DynamicResource MaterialDesignFlatButton}"
                     ToolTip="Settings"
                     Padding="5"
