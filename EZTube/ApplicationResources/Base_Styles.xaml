@@ -62,7 +62,7 @@
     <!--ToggleButton Styles ↓-->
     <Style TargetType="ToggleButton" BasedOn="{StaticResource MaterialDesignSwitchToggleButton}">
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Background" Value="{DynamicResource RedColor}"/>
         <Setter Property="material:ToggleButtonAssist.SwitchTrackOnBackground" Value="{DynamicResource RedColor}"/>
     </Style>
 </ResourceDictionary>
