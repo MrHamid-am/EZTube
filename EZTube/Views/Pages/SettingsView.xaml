@@ -26,10 +26,12 @@
         <StackPanel ToolTip="Set How Many Downloads Can be Active at One Time">
             <TextBlock Margin="16,10">
                 <Run Text="Maximum Current Downloads: "/>
-                <Run Text="{Binding MaxDownloads,Mode=OneWay}"/>
+                <Run Text="{Binding MaxDownloads,Mode=OneWay}"
+                     Foreground="{StaticResource RedColor}"/>
             </TextBlock>
             <Slider x:Name="MaxDownloads"
-                    Margin="16,0"/>
+                    Margin="16,0"
+                    Foreground="{StaticResource RedColor}"/>
         </StackPanel>
 
         <!--File Template Section-->
@@ -38,7 +40,8 @@
                        Margin="16,10,16,0"/>
             <ComboBox SelectedValue="{Binding FileNameTemplate}"
                       SelectedValuePath="Content"
-                      Margin="16,0">
+                      Margin="16,0"
+                      materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource RedColor}">
                 <ComboBoxItem Content="$title" />
                 <ComboBoxItem Content="$num"/>
                 <ComboBoxItem Content="$author"/>
