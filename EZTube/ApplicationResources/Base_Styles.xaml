@@ -51,6 +51,7 @@
     <!--TextBox Styles ↓-->
     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+        <Setter Property="material:TextFieldAssist.UnderlineBrush" Value="{DynamicResource RedColor}"></Setter>
     </Style>
 
     <!--TextBlock Styles ↓-->
