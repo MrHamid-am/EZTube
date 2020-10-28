@@ -53,7 +53,7 @@
     </Style>
 
     <!--TextBlock Styles ↓-->
-    <Style TargetType="TextBlock" x:Key="HeaderBlock">
+    <Style TargetType="TextBlock" x:Key="HeaderBlock" BasedOn="{StaticResource MaterialDesignTextBlock}">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
     </Style>
