@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <!--Base Query Box-->
-        <Grid Background="{DynamicResource RedColor}">
+        <Grid Background="{DynamicResource RedBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>

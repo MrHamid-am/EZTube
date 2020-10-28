@@ -27,11 +27,11 @@
             <TextBlock Margin="16,10">
                 <Run Text="Maximum Current Downloads: "/>
                 <Run Text="{Binding MaxDownloads,Mode=OneWay}"
-                     Foreground="{StaticResource RedColor}"/>
+                     Foreground="{StaticResource RedBrush}"/>
             </TextBlock>
             <Slider x:Name="MaxDownloads"
                     Margin="16,0"
-                    Foreground="{StaticResource RedColor}"/>
+                    Foreground="{StaticResource RedBrush}"/>
         </StackPanel>
 
         <!--File Template Section-->
@@ -41,7 +41,7 @@
             <ComboBox SelectedValue="{Binding FileNameTemplate}"
                       SelectedValuePath="Content"
                       Margin="16,0"
-                      materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource RedColor}">
+                      materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource RedBrush}">
                 <ComboBoxItem Content="$title" />
                 <ComboBoxItem Content="$num"/>
                 <ComboBoxItem Content="$author"/>

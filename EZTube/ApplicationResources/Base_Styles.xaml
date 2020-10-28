@@ -18,7 +18,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
-                    <Border CornerRadius="4" Background="Red" BorderThickness="0"  Width="8" Margin="8,0,-2,0"/>
+                    <Border CornerRadius="4" Background="{DynamicResource RedBrush}" BorderThickness="0"  Width="8" Margin="8,0,-2,0"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -51,7 +51,7 @@
     <!--TextBox Styles ↓-->
     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
-        <Setter Property="material:TextFieldAssist.UnderlineBrush" Value="{DynamicResource RedColor}"></Setter>
+        <Setter Property="material:TextFieldAssist.UnderlineBrush" Value="{DynamicResource RedBrush}"></Setter>
     </Style>
 
     <!--TextBlock Styles ↓-->
@@ -63,7 +63,7 @@
     <!--ToggleButton Styles ↓-->
     <Style TargetType="ToggleButton" BasedOn="{StaticResource MaterialDesignSwitchToggleButton}">
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Background" Value="{DynamicResource RedColor}"/>
-        <Setter Property="material:ToggleButtonAssist.SwitchTrackOnBackground" Value="{DynamicResource RedColor}"/>
+        <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
+        <Setter Property="material:ToggleButtonAssist.SwitchTrackOnBackground" Value="{DynamicResource RedBrush}"/>
     </Style>
 </ResourceDictionary>
