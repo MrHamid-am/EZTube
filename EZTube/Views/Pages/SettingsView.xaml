@@ -15,27 +15,30 @@
         </Style>
     </UserControl.Resources>
 
-    <StackPanel Margin="10">
+    <StackPanel Margin="15">
         <!--Title of Page-->
         <TextBlock Text="Settings"
-                   Foreground="{DynamicResource PrimaryTextColor}"/>
+                   Foreground="{DynamicResource PrimaryTextColor}"
+                   Style="{DynamicResource HeaderBlock}"
+                   Margin="16,0"/>
 
         <!--Max Downloads Section-->
         <StackPanel ToolTip="Set How Many Downloads Can be Active at One Time">
-            <TextBlock>
-                <TextBlock>
-                    <Run Text="Maximum Current Downloads: "/>
-                    <Run Text="{Binding MaxDownloads,Mode=OneWay}"/>
-                </TextBlock>
+            <TextBlock Margin="16,10">
+                <Run Text="Maximum Current Downloads: "/>
+                <Run Text="{Binding MaxDownloads,Mode=OneWay}"/>
             </TextBlock>
-            <Slider x:Name="MaxDownloads"/>
+            <Slider x:Name="MaxDownloads"
+                    Margin="16,0"/>
         </StackPanel>
 
         <!--File Template Section-->
         <StackPanel ToolTip="Set Template to Generating Name for Downloaded Videos">
-            <TextBlock Text="File Name Template"/>
+            <TextBlock Text="File Name Template"
+                       Margin="16,10,16,0"/>
             <ComboBox SelectedValue="{Binding FileNameTemplate}"
-                      SelectedValuePath="Content">
+                      SelectedValuePath="Content"
+                      Margin="16,0">
                 <ComboBoxItem Content="$title" />
                 <ComboBoxItem Content="$num"/>
                 <ComboBoxItem Content="$author"/>
@@ -45,7 +48,8 @@
 
         <!--Container Formats-->
         <TextBox materialDesign:HintAssist.Hint="Excluded Container Formats"
-                 materialDesign:HintAssist.IsFloating="True">
+                 materialDesign:HintAssist.IsFloating="True"
+                 Margin="16,0,16,10">
             <TextBox.ToolTip>
                 <TextBlock>
                     <Run Text="Comma Separated List of Container Formats Excluded From Format List When Downloading a Video" />
@@ -95,7 +99,7 @@
 
             <!--Skip Downloads-->
             <DockPanel ToolTip="When Selecting Multiple Videos to Download Skip Those That Already Have Matching File in Directory">
-                <TextBlock Text="Automatically Inject Media Tags"
+                <TextBlock Text="Skip Downloads for Files That Already Exist"
                            DockPanel.Dock="Left"/>
                 <ToggleButton DockPanel.Dock="Right"/>
             </DockPanel>
