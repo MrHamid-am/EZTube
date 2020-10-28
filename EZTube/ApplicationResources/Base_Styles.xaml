@@ -51,4 +51,10 @@
     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
     </Style>
+
+    <!--TextBlock Styles ↓-->
+    <Style TargetType="TextBlock" x:Key="HeaderBlock">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
 </ResourceDictionary>
