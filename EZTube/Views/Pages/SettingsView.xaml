@@ -40,8 +40,7 @@
                        Margin="16,10,16,0"/>
             <ComboBox SelectedValue="{Binding FileNameTemplate}"
                       SelectedValuePath="Content"
-                      Margin="16,0"
-                      materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource RedBrush}">
+                      Margin="16,0"                      >
                 <ComboBoxItem Content="$title" />
                 <ComboBoxItem Content="$num"/>
                 <ComboBoxItem Content="$author"/>

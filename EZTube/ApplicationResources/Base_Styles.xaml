@@ -66,4 +66,9 @@
         <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
         <Setter Property="material:ToggleButtonAssist.SwitchTrackOnBackground" Value="{DynamicResource RedBrush}"/>
     </Style>
+    
+    <!--ComboBox Styles-->
+    <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignComboBox}">
+        <Setter Property="material:TextFieldAssist.UnderlineBrush" Value="{DynamicResource RedBrush}"/>
+    </Style>
 </ResourceDictionary>
