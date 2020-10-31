@@ -5,10 +5,74 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EZTube.Views.Pages"
              xmlns:pages="clr-namespace:EZTube.ViewModels.Pages"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance pages:SingleDownloadViewModel}"
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="850" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="DockPanel">
+            <Setter Property="LastChildFill" Value="False"/>
+        </Style>
+    </UserControl.Resources>
 
-    </Grid>
+    <StackPanel>
+
+        <!--Image And Formatting Section-->
+        <Grid>
+            <Image Source="https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"
+                   MaxWidth="420"/>
+            <TextBlock Text="00:24:32"
+                       Background="{StaticResource RedBrush}"
+                       Foreground="White"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       Padding="3"/>
+        </Grid>
+
+        <!--Title Section-->
+        <StackPanel>
+            <TextBlock Text="3 Scary Games"
+                       Style="{StaticResource HeaderBlock}"/>
+            <DockPanel>
+                <TextBlock Text="Markiplier"
+                           DockPanel.Dock="Left"/>
+                <TextBlock Text="Sep 24,2020"
+                           DockPanel.Dock="Right"
+                           Foreground="{StaticResource RedBrush}"/>
+            </DockPanel>
+        </StackPanel>
+
+        <!--Formatting Section-->
+        <DockPanel>
+            <DockPanel.Resources>
+                <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignTextBlock}">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </DockPanel.Resources>
+
+            <!--Format Section-->
+            <StackPanel Orientation="Horizontal"
+                        DockPanel.Dock="Left">
+                <TextBlock Text="Format: "/>
+                <ComboBox SelectedIndex="0">
+                    <ComboBoxItem Content="1080 / mp4"/>
+                    <ComboBoxItem Content="720 / mp4"/>
+                    <ComboBoxItem Content="480 / mp4"/>
+                    <ComboBoxItem Content="120 / mp4"/>
+                </ComboBox>
+            </StackPanel>
+
+            <!--Subtitles Section-->
+            <StackPanel Orientation="Horizontal" 
+                        DockPanel.Dock="Right">
+                <CheckBox Content="Subtitles"/>
+                <ComboBox SelectedIndex="0">
+                    <ComboBoxItem Content="English"/>
+                    <ComboBoxItem Content="Persian"/>
+                    <ComboBoxItem Content="Germany"/>
+                    <ComboBoxItem Content="China"/>
+                </ComboBox>
+            </StackPanel>
+        </DockPanel>
+    </StackPanel>
 </UserControl>
