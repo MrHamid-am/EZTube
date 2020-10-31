@@ -32,13 +32,16 @@
         <!--Title Section-->
         <StackPanel>
             <TextBlock Text="3 Scary Games"
-                       Style="{StaticResource HeaderBlock}"/>
+                       Style="{StaticResource HeaderBlock}"
+                       Margin="10,0,0,0"/>
             <DockPanel>
                 <TextBlock Text="Markiplier"
-                           DockPanel.Dock="Left"/>
+                           DockPanel.Dock="Left"
+                           Margin="10,0,0,0"/>
                 <TextBlock Text="Sep 24,2020"
                            DockPanel.Dock="Right"
-                           Foreground="{StaticResource RedBrush}"/>
+                           Foreground="{StaticResource RedBrush}"
+                           Margin="0,0,10,0"/>
             </DockPanel>
         </StackPanel>
 
@@ -53,8 +56,10 @@
             <!--Format Section-->
             <StackPanel Orientation="Horizontal"
                         DockPanel.Dock="Left">
-                <TextBlock Text="Format: "/>
-                <ComboBox SelectedIndex="0">
+                <TextBlock Text="Format: "
+                           Margin="10,0,0,0"/>
+                <ComboBox SelectedIndex="0"
+                          Margin="10,0,0,0">
                     <ComboBoxItem Content="1080 / mp4"/>
                     <ComboBoxItem Content="720 / mp4"/>
                     <ComboBoxItem Content="480 / mp4"/>
@@ -63,16 +68,18 @@
             </StackPanel>
 
             <!--Subtitles Section-->
-            <StackPanel Orientation="Horizontal" 
+            <StackPanel Orientation="Horizontal"
                         DockPanel.Dock="Right">
-                <CheckBox Content="Subtitles"/>
-                <ComboBox SelectedIndex="0">
+                <CheckBox Content="Subtitles: "
+                          Margin="10"/>
+                <ComboBox SelectedIndex="0"
+                          Margin="10,0">
                     <ComboBoxItem Content="English"/>
                     <ComboBoxItem Content="Persian"/>
                     <ComboBoxItem Content="Germany"/>
                     <ComboBoxItem Content="China"/>
                 </ComboBox>
             </StackPanel>
-        </DockPanel>
+        </DockPanel>        
     </StackPanel>
 </UserControl>
