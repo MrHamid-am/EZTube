@@ -71,9 +71,10 @@
             <StackPanel Orientation="Horizontal"
                         DockPanel.Dock="Right">
                 <CheckBox Content="Subtitles: "
-                          Margin="10"/>
+                          Name="Subtitles"/>
                 <ComboBox SelectedIndex="0"
-                          Margin="10,0">
+                          Margin="5,0,10,0"
+                          IsEnabled="{Binding ElementName=Subtitles,Path=IsChecked}">
                     <ComboBoxItem Content="English"/>
                     <ComboBoxItem Content="Persian"/>
                     <ComboBoxItem Content="Germany"/>
