@@ -25,5 +25,11 @@ namespace EZTube.ViewModels.Query_And_Processing
             //Send Message To ShellViewModel For Showing Settings Page
             _eventAggregator.PublishOnUIThread(PageOptions.OpenSettings);
         }
+
+        public void StartDownload()
+        {
+            //Send Message To ShellViewModel For Showing Settings Page
+            _eventAggregator.PublishOnUIThread(PageOptions.OpenSingleDownloadPage);
+        }
     }
 }

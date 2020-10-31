@@ -51,7 +51,13 @@ namespace EZTube.ViewModels
                     DialogHost.Show(view);
                     break;
                 }
-                    
+                case PageOptions.OpenSingleDownloadPage:
+                {
+                    var view = _viewModelBinderFactory.CreateAndBindSingleDownloadViewModel();
+                    DialogHost.Show(view);
+
+                    break;
+                }
             }
         }
     }
