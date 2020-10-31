@@ -71,4 +71,8 @@
     <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignComboBox}">
         <Setter Property="material:TextFieldAssist.UnderlineBrush" Value="{DynamicResource RedBrush}"/>
     </Style>
+
+    <Style TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignCheckBox}">
+        <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
+    </Style>
 </ResourceDictionary>
