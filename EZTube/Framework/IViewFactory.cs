@@ -7,6 +7,6 @@ namespace EZTube.Framework
 {
     public interface IViewFactory
     {
-        SettingsView CeateSettingsView();
+        SettingsView CreateSettingsView();
     }
 }

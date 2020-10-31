@@ -25,7 +25,7 @@ namespace EZTube.Framework
         {
             //Create View And ViewModel With Factories
             var viewModel = _viewModelFactory.CreateSettingsViewModel();
-            var view = _viewFactory.CeateSettingsView();
+            var view = _viewFactory.CreateSettingsView();
 
             //Bind ViewModel To It's View
             Caliburn.Micro.ViewModelBinder.Bind(viewModel, view, creationContext);
