@@ -20,9 +20,15 @@ namespace EZTube
 
         protected override void Configure()
         {
+            //Register Containers
             _container.RegisterSingleton<IWindowManager, WindowManager>();
             _container.RegisterSingleton<IEventAggregator, EventAggregator>();
+
+            //Register Factories
             _container.RegisterFactory<IViewModelFactory>(f => new ViewModelFactory(_container.Resolve<IEventAggregator>()));
+            _container.RegisterFactory<IViewFactory>(f => new ViewFactory());
+            _container.RegisterFactory<IViewModelBinderFactory>(f => new ViewModelBinderFactory(_container.Resolve<IViewModelFactory>(),
+                                                                                                            _container.Resolve<IViewFactory>()));
         }
 
         protected override void BuildUp(object instance)

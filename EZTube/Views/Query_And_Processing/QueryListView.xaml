@@ -12,6 +12,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -22,10 +23,13 @@
                   HorizontalAlignment="Left"
                   Margin="10,0,0,0"/>
 
+        <Separator Grid.Row="1"/>
+
         <!--ListView-->
-        <ScrollViewer Grid.Row="1"
+        <ScrollViewer Grid.Row="2"
                       SnapsToDevicePixels="True"
-                      CanContentScroll="False">
+                      CanContentScroll="False"
+                      VerticalScrollBarVisibility="Hidden">
             <ItemsControl x:Name="DownloadsList" 
                       HorizontalContentAlignment="Stretch"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -86,7 +90,7 @@
                                     <ProgressBar Name="ProgressBar" 
                                              Value="{Binding ProgressState}"
                                              Style="{DynamicResource MaterialDesignCircularProgressBar}"
-                                             Foreground="{StaticResource RedColor}"
+                                             Foreground="{StaticResource RedBrush}"
                                              Width="50" Height="50"
                                              Margin="5"
                                              HorizontalAlignment="Center"

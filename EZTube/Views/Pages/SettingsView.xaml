@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="EZTube.Views.Pages.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EZTube.Views.Pages"
+             xmlns:viewModels="clr-namespace:EZTube.ViewModels.Pages"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance viewModels:SettingsViewModel}">
+    <UserControl.Resources>
+        <Style TargetType="DockPanel">
+            <Setter Property="LastChildFill" Value="False"/>
+        </Style>
+    </UserControl.Resources>
+
+    <StackPanel Margin="15">
+        <!--Title of Page-->
+        <TextBlock Text="Settings"
+                   Foreground="{DynamicResource PrimaryTextColor}"
+                   Style="{DynamicResource HeaderBlock}"
+                   Margin="16,0"/>
+
+        <!--Max Downloads Section-->
+        <StackPanel ToolTip="Set How Many Downloads Can be Active at One Time">
+            <TextBlock Margin="16,10">
+                <Run Text="Maximum Current Downloads: "/>
+                <Run Text="{Binding MaxDownloads,Mode=OneWay}"
+                     Foreground="{StaticResource RedBrush}"/>
+            </TextBlock>
+            <Slider x:Name="MaxDownloads"
+                    Margin="16,0"
+                    Foreground="{StaticResource RedBrush}"/>
+        </StackPanel>
+
+        <!--File Template Section-->
+        <StackPanel ToolTip="Set Template to Generating Name for Downloaded Videos">
+            <TextBlock Text="File Name Template"
+                       Margin="16,10,16,0"/>
+            <ComboBox SelectedValue="{Binding FileNameTemplate}"
+                      SelectedValuePath="Content"
+                      Margin="16,0"                      >
+                <ComboBoxItem Content="$title" />
+                <ComboBoxItem Content="$num"/>
+                <ComboBoxItem Content="$author"/>
+                <ComboBoxItem Content="$uploadData"/>
+            </ComboBox>
+        </StackPanel>
+
+        <!--Container Formats-->
+        <TextBox materialDesign:HintAssist.Hint="Excluded Container Formats"
+                 materialDesign:HintAssist.IsFloating="True"
+                 Margin="16,0,16,10">
+            <TextBox.ToolTip>
+                <TextBlock>
+                    <Run Text="Comma Separated List of Container Formats Excluded From Format List When Downloading a Video" />
+                    <LineBreak />
+                    <LineBreak />
+                    <Run Text="Ex: webm,ogg" />
+                </TextBlock>
+            </TextBox.ToolTip>
+        </TextBox>
+
+        <!--Advanced Settings-->
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="16,10"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <!--Auto Updates-->
+            <DockPanel>
+                <DockPanel.ToolTip>
+                    <TextBlock>
+                        <Run Text="Check Updates on Every Launch"/>
+                        <LineBreak/>
+                        <Run FontWeight="SemiBold" Text="WARNING: "/>
+                        <Run Text="Disabling Auto-Update is Not Recommended Because Application will Stop Working if Something goes Wrong in Future"/>
+                    </TextBlock>
+                </DockPanel.ToolTip>
+                <TextBlock Text="Auto-Update"
+                           DockPanel.Dock="Left"/>
+                <ToggleButton DockPanel.Dock="Right"/>
+            </DockPanel>
+
+            <!--Dark Mode-->
+            <DockPanel ToolTip="Use Darker Colors in UI">
+                <TextBlock Text="Dark Mode"
+                           DockPanel.Dock="Left"/>
+                <ToggleButton DockPanel.Dock="Right"/>
+            </DockPanel>
+
+            <!--Inject Media Tags-->
+            <DockPanel ToolTip="Media Tags Can Be Automatically inferred From Video Title And Injected into Output File">
+                <TextBlock Text="Automatically Inject Media Tags"
+                           DockPanel.Dock="Left"/>
+                <ToggleButton DockPanel.Dock="Right"/>
+            </DockPanel>
+
+            <!--Skip Downloads-->
+            <DockPanel ToolTip="When Selecting Multiple Videos to Download Skip Those That Already Have Matching File in Directory">
+                <TextBlock Text="Skip Downloads for Files That Already Exist"
+                           DockPanel.Dock="Left"/>
+                <ToggleButton DockPanel.Dock="Right"/>
+            </DockPanel>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

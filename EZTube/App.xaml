@@ -16,7 +16,8 @@
                 <ResourceDictionary Source="ApplicationResources/Base_Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <SolidColorBrush x:Key="RedColor" Color="#FF0000"/>
+            <Color x:Key="RedColor">#FF0000</Color>
+            <SolidColorBrush x:Key="RedBrush" Color="{StaticResource RedColor}"/>
             <SolidColorBrush x:Key="WhiteColor" Color="#FFFFFF"/>
         </ResourceDictionary>
     </Application.Resources>

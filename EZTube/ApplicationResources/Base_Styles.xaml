@@ -1,5 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes">
+    
+    <!--Basic Colors And Backgrounds ↓-->
+    <Color x:Key="TextColor">#000000</Color>
+    <SolidColorBrush x:Key="PrimaryTextColor" 
+                     Color="{DynamicResource TextColor}"/>
+
     <!--Scroll Bar Style ↓-->
 
     <!--Thumb For Vertical (or Horizontal) Scroll Bar-->
@@ -11,7 +18,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
-                    <Border CornerRadius="4" Background="Red" BorderThickness="0"  Width="8" Margin="8,0,-2,0"/>
+                    <Border CornerRadius="4" Background="{DynamicResource RedBrush}" BorderThickness="0"  Width="8" Margin="8,0,-2,0"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -39,5 +46,41 @@
                 <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <!--TextBox Styles ↓-->
+    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+        <Setter Property="material:TextFieldAssist.UnderlineBrush" Value="{DynamicResource RedBrush}"></Setter>
+    </Style>
+
+    <!--TextBlock Styles ↓-->
+    <Style TargetType="TextBlock" x:Key="HeaderBlock" BasedOn="{StaticResource MaterialDesignTextBlock}">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <!--ToggleButton Styles ↓-->
+    <Style TargetType="ToggleButton" BasedOn="{StaticResource MaterialDesignSwitchToggleButton}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
+        <Setter Property="material:ToggleButtonAssist.SwitchTrackOnBackground" Value="{DynamicResource RedBrush}"/>
+    </Style>
+    
+    <!--ComboBox Styles-->
+    <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignComboBox}">
+        <Setter Property="material:TextFieldAssist.UnderlineBrush" Value="{DynamicResource RedBrush}"/>
+    </Style>
+
+    <!--CheckBox Styles-->
+    <Style TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignCheckBox}">
+        <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
+    </Style>
+
+    <!--Separator Styles-->
+    <Style TargetType="Separator" BasedOn="{StaticResource MaterialDesignSeparator}">
+        <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="Height" Value="0"/>
     </Style>
 </ResourceDictionary>
