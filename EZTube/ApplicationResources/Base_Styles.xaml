@@ -72,7 +72,15 @@
         <Setter Property="material:TextFieldAssist.UnderlineBrush" Value="{DynamicResource RedBrush}"/>
     </Style>
 
+    <!--CheckBox Styles-->
     <Style TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignCheckBox}">
         <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
+    </Style>
+
+    <!--Separator Styles-->
+    <Style TargetType="Separator" BasedOn="{StaticResource MaterialDesignSeparator}">
+        <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="Height" Value="0"/>
     </Style>
 </ResourceDictionary>
