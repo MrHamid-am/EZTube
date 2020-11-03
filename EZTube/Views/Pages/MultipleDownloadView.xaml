@@ -66,12 +66,9 @@
                             </StackPanel>
 
                             <!--Selection State-->
-                            <materialDesign:PackIcon Grid.Column="2"
-                                                     Width="24"
-                                                     Height="24"
-                                                     Kind="CheckBox"
-                                                     Foreground="{StaticResource RedBrush}"
-                                                     VerticalAlignment="Center"/>
+                            <CheckBox Grid.Column="2"
+                                      IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}}"
+                                      materialDesign:CheckBoxAssist.CheckBoxSize="20"/>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
