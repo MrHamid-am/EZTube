@@ -30,10 +30,11 @@
 
         <!--Download List Section-->
         <Border Grid.Row="1"
-                BorderThickness="0,1" BorderBrush="#50FF0000">
+                BorderThickness="0,1"
+                BorderBrush="#50FF0000">
             <ListView x:Name="RequestedDownloads"
-                  HorizontalContentAlignment="Stretch"
-                  SelectionMode="Extended">
+                      HorizontalContentAlignment="Stretch"
+                      SelectionMode="Extended">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="{x:Type models:YouTubeVideo}">
                         <Grid>
@@ -61,11 +62,11 @@
 
                             <!--Selection State-->
                             <materialDesign:PackIcon Grid.Column="2"
-                                                 Width="24"
-                                                 Height="24"
-                                                 Kind="CheckBox"
-                                                 Foreground="{StaticResource RedBrush}"
-                                                 VerticalAlignment="Center"/>
+                                                     Width="24"
+                                                     Height="24"
+                                                     Kind="CheckBox"
+                                                     Foreground="{StaticResource RedBrush}"
+                                                     VerticalAlignment="Center"/>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
