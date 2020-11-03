@@ -51,12 +51,14 @@
                             <!--Video Title And Details-->
                             <StackPanel Grid.Column="1">
                                 <TextBlock Style="{StaticResource HeaderBlock}"
-                                       Text="{Binding Title}"/>
+                                           Text="{Binding Title}"/>
                                 <TextBlock>
-                                <Run Text="{Binding Duration}"/>
-                                <Run Text="{Binding Author}"
-                                     Foreground="{StaticResource RedBrush}"/>
-                                <Run Text="{Binding UploadDate,StringFormat=\{0:MMM d\, yyyy\}}"/>
+                                    <Run Text="{Binding Duration}"/>
+                                    <Run Text="/"/>
+                                    <Run Text="{Binding Author}"
+                                         Foreground="{StaticResource RedBrush}"/>
+                                    <Run Text="/"/>
+                                    <Run Text="{Binding UploadDate,StringFormat=\{0:MMM d\, yyyy\}}"/>
                                 </TextBlock>
                             </StackPanel>
 
