@@ -14,6 +14,8 @@ namespace EZTube.Framework
             return new SettingsViewModel();
         }
 
+        #region SingleDownload
+
         public static SingleDownloadViewModel CreateSingleDownloadViewModel(this IViewModelFactory factory)
         {
             return new SingleDownloadViewModel();
@@ -24,7 +26,7 @@ namespace EZTube.Framework
             return new SingleDownloadView();
         }
 
-        public static SingleDownloadView CreateAndBindSingleDownloadViewModel(this IViewModelBinderFactory binderFactory,object creationContext = null)
+        public static SingleDownloadView CreateAndBindSingleDownloadViewModel(this IViewModelBinderFactory binderFactory, object creationContext = null)
         {
             //Create View And ViewModel With Factories
             var viewModel = IoC.Get<IViewModelFactory>().CreateSingleDownloadViewModel();
@@ -35,5 +37,33 @@ namespace EZTube.Framework
 
             return view;
         }
+
+        #endregion
+
+        #region MultipleDownload
+
+        public static MultipleDownloadViewModel CreateMultipleDownloadViewModel(this IViewModelFactory factory)
+        {
+            return new MultipleDownloadViewModel();
+        }
+
+        public static MultipleDownloadView CreateMultipleDownloadView(this IViewFactory factory)
+        {
+            return new MultipleDownloadView();
+        }
+
+        public static MultipleDownloadView CreateAndBindMultipleDownloadViewModel(this IViewModelBinderFactory binderFactory, object creationContext = null)
+        {
+            //Create View And ViewModel With Factories
+            var viewModel = IoC.Get<IViewModelFactory>().CreateMultipleDownloadViewModel();
+            var view = IoC.Get<IViewFactory>().CreateMultipleDownloadView();
+
+            //Bind ViewModel To It's View
+            Caliburn.Micro.ViewModelBinder.Bind(viewModel, view, creationContext);
+
+            return view;
+        }
+
+        #endregion
     }
 }

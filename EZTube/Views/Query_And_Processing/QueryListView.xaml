@@ -32,7 +32,6 @@
                       VerticalScrollBarVisibility="Hidden">
             <ItemsControl x:Name="DownloadsList" 
                       HorizontalContentAlignment="Stretch"
-                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       Margin="10">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type model:YouTubeVideo}">

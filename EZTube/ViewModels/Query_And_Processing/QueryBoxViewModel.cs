@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using Caliburn.Micro;
 using EZTube.Models;
@@ -22,14 +23,25 @@ namespace EZTube.ViewModels.Query_And_Processing
 
         public void Settings()
         {
-            //Send Message To ShellViewModel For Showing Settings Page
+            //Send Message to ShellViewModel to Open Settings Page
             _eventAggregator.PublishOnUIThread(PageOptions.OpenSettings);
         }
 
-        public void StartDownload()
+        public void StartDownload(string urlBox)//Caliburn.Micro Will Automatically get string From TextBox
         {
-            //Send Message To ShellViewModel For Showing Settings Page
-            _eventAggregator.PublishOnUIThread(PageOptions.OpenSingleDownloadPage);
+            //Split Url List to Multiple Urls Without Repeating
+            var urlList = urlBox.Split(Environment.NewLine).Distinct().ToArray();
+
+            if (urlList.Length == 1)
+            {
+                //Send Message to ShellViewModel to Open SingleDownloadPage
+                _eventAggregator.PublishOnUIThread(PageOptions.OpenSingleDownloadPage);
+            }
+            else if (urlList.Length > 1)
+            {
+                //Send Message to ShellViewModel to Open MultipleDownloadPage
+                _eventAggregator.PublishOnUIThread(PageOptions.OpenMultipleDownloadPage);
+            }
         }
     }
 }

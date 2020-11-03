@@ -18,7 +18,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
-                    <Border CornerRadius="4" Background="{DynamicResource RedBrush}" BorderThickness="0"  Width="8" Margin="8,0,-2,0"/>
+                    <Border CornerRadius="4" Background="{DynamicResource RedBrush}" BorderThickness="0"  Width="8" Margin="0,0,-2,0"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -48,6 +48,11 @@
         </Style.Triggers>
     </Style>
 
+    <Style TargetType="ScrollViewer">
+        <Setter Property="CanContentScroll" Value="False"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+    </Style>
+
     <!--TextBox Styles ↓-->
     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
@@ -66,21 +71,26 @@
         <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
         <Setter Property="material:ToggleButtonAssist.SwitchTrackOnBackground" Value="{DynamicResource RedBrush}"/>
     </Style>
-    
-    <!--ComboBox Styles-->
+
+    <!--ComboBox Styles ↓-->
     <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignComboBox}">
         <Setter Property="material:TextFieldAssist.UnderlineBrush" Value="{DynamicResource RedBrush}"/>
     </Style>
 
-    <!--CheckBox Styles-->
+    <!--CheckBox Styles ↓-->
     <Style TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignCheckBox}">
         <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
     </Style>
 
-    <!--Separator Styles-->
+    <!--Separator Styles ↓-->
     <Style TargetType="Separator" BasedOn="{StaticResource MaterialDesignSeparator}">
         <Setter Property="Background" Value="{DynamicResource RedBrush}"/>
         <Setter Property="Margin" Value="0,10,0,0"/>
         <Setter Property="Height" Value="0"/>
+    </Style>
+
+    <!--DockPanel Styles ↓-->
+    <Style TargetType="DockPanel">
+        <Setter Property="LastChildFill" Value="False"/>
     </Style>
 </ResourceDictionary>

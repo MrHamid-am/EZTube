@@ -9,12 +9,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              d:DataContext="{d:DesignInstance viewModels:SettingsViewModel}">
-    <UserControl.Resources>
-        <Style TargetType="DockPanel">
-            <Setter Property="LastChildFill" Value="False"/>
-        </Style>
-    </UserControl.Resources>
-
     <StackPanel Margin="15">
         <!--Title of Page-->
         <TextBlock Text="Settings"
