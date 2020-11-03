@@ -45,6 +45,8 @@
             </DockPanel>
         </StackPanel>
 
+        <Separator/>
+
         <!--Formatting Section-->
         <DockPanel>
             <DockPanel.Resources>
