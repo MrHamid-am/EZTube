@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EZTube.Views.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:local="clr-namespace:EZTube.Views.Pages"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:models="clr-namespace:EZTube.Models">
+             xmlns:models="clr-namespace:EZTube.Models"
+             xmlns:viewModels="clr-namespace:EZTube.ViewModels.Pages"
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance viewModels:MultipleDownloadViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -17,26 +19,20 @@
         </Grid.RowDefinitions>
 
         <!--Title Section-->
-        <DockPanel LastChildFill="False">
-            <TextBlock Style="{StaticResource HeaderBlock}"
-                       Text="Multiple Downloads"
-                       DockPanel.Dock="Left"
-                       Margin="2,0,0,0"
-                       Padding="8"/>
-            <materialDesign:PopupBox DockPanel.Dock="Right">
-                <StackPanel>
-                    <Button Content="Select All"/>
-                </StackPanel>
-            </materialDesign:PopupBox>
-        </DockPanel>
+        <TextBlock Style="{StaticResource HeaderBlock}"
+                   Text="Multiple Downloads"
+                   DockPanel.Dock="Left"
+                   Margin="2,0,0,0"
+                   Padding="8"/>
 
-        <!--Download List Section-->
+            <!--Download List Section-->
         <Border Grid.Row="1"
                 BorderThickness="0,1"
                 BorderBrush="#50FF0000">
-            <ListView x:Name="RequestedDownloads"
+            <ListView Name="RequestedDownloads"
                       HorizontalContentAlignment="Stretch"
                       SelectionMode="Extended">
+
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="{x:Type models:YouTubeVideo}">
                         <Grid>
@@ -133,6 +129,7 @@
                 </Button.Content>
 
                 <Button.Resources>
+                    <!--Disable Button if Nothing Selected-->
                     <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding ElementName=RequestedDownloads,Path=SelectedItems.Count}"
