@@ -83,4 +83,9 @@
         <Setter Property="Margin" Value="0,10,0,0"/>
         <Setter Property="Height" Value="0"/>
     </Style>
+
+    <!--DockPanel Styles-->
+    <Style TargetType="DockPanel">
+        <Setter Property="LastChildFill" Value="False"/>
+    </Style>
 </ResourceDictionary>
