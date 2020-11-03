@@ -19,12 +19,12 @@ namespace EZTube.ViewModels.Pages
         {
             RequestedDownloads = new List<YouTubeVideo>()
             {
-                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"),
-                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"),
-                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"),
-                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"),
-                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"),
-                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"),
+                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){UploadDate=DateTime.Now},
+                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){UploadDate=DateTime.Now},
+                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){UploadDate=DateTime.Now},
+                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){UploadDate=DateTime.Now},
+                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){UploadDate=DateTime.Now},
+                new YouTubeVideo("3 Scary Game","Mark","","https://d12avs59aaiyvm.cloudfront.net/wp-content/uploads/2018/02/Markiplier-youtube.jpg"){UploadDate=DateTime.Now},
             };
         }
     }

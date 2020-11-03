@@ -5,8 +5,127 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EZTube.Views.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:models="clr-namespace:EZTube.Models">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--Title Section-->
+        <DockPanel LastChildFill="False">
+            <TextBlock Style="{StaticResource HeaderBlock}"
+                       Text="Multiple Downloads"
+                       DockPanel.Dock="Left"/>
+            <materialDesign:PopupBox DockPanel.Dock="Right">
+                <StackPanel>
+                    <Button Content="Select All"/>
+                </StackPanel>
+            </materialDesign:PopupBox>
+        </DockPanel>
+
+        <!--Download List Section-->
+        <Border Grid.Row="1"
+                BorderThickness="0,1" BorderBrush="#50FF0000">
+            <ListView x:Name="RequestedDownloads"
+                  HorizontalContentAlignment="Stretch"
+                  SelectionMode="Extended">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type models:YouTubeVideo}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Image Thumb-->
+                            <Image Source="{Binding VideoThumb}"
+                               MaxWidth="50"/>
+
+                            <!--Video Title And Details-->
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Style="{StaticResource HeaderBlock}"
+                                       Text="{Binding Title}"/>
+                                <TextBlock>
+                                <Run Text="{Binding Duration}"/>
+                                <Run Text="{Binding Author}"
+                                     Foreground="{StaticResource RedBrush}"/>
+                                <Run Text="{Binding UploadDate,StringFormat=\{0:MMM d\, yyyy\}}"/>
+                                </TextBlock>
+                            </StackPanel>
+
+                            <!--Selection State-->
+                            <materialDesign:PackIcon Grid.Column="2"
+                                                 Width="24"
+                                                 Height="24"
+                                                 Kind="CheckBox"
+                                                 Foreground="{StaticResource RedBrush}"
+                                                 VerticalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+
+        <!--Formatting-->
+        <DockPanel Grid.Row="2">
+            <!--Set All TextBlock Alignment to Center-->
+            <DockPanel.Resources>
+                <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignTextBlock}">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </DockPanel.Resources>
+
+            <!--Format Selection-->
+            <StackPanel Orientation="Horizontal"
+                        DockPanel.Dock="Left">
+                <TextBlock Text="Format: "/>
+                <ComboBox MinWidth="150">
+                    <ComboBoxItem Content="mp4"/>
+                    <ComboBoxItem Content="mp3"/>
+                    <ComboBoxItem Content="ogg"/>
+                </ComboBox>
+            </StackPanel>
+
+            <!--Quality Selection-->
+            <StackPanel Orientation="Horizontal"
+                        DockPanel.Dock="Right">
+                <TextBlock Text="Format: "/>
+                <ComboBox MinWidth="150">
+                    <ComboBoxItem Content="Maximum"/>
+                    <ComboBoxItem Content="Minimum"/>
+                    <ComboBoxItem Content="Low (up to 480p)"/>
+                    <ComboBoxItem Content="Medium (up to 720p)"/>
+                    <ComboBoxItem Content="High (up to 1080p)"/>
+                </ComboBox>
+            </StackPanel>
+        </DockPanel>
+
+        <!--Buttons-->
+        <StackPanel Grid.Row="3" 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="Cancel"
+                    IsCancel="True"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    Margin="0,0,5,0"/>
+            <Button IsDefault="True"                    
+                    Background="{StaticResource RedBrush}"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Foreground="#fff">
+                <Button.Content>
+                    <TextBlock>
+                        <Run Text="Download "/>
+                        <Run Text="{Binding ElementName=RequestedDownloads,Path=SelectedItems.Count,FallbackValue=0,Mode=OneWay,StringFormat='({0})'}"/>
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>
