@@ -11,6 +11,8 @@ namespace EZTube.Models
         public string Details { get; set; }
         public double ProgressState { get; set; }
         public string VideoThumb { get; set; }
+        public DateTime UploadDate { get; set; }
+        public TimeSpan Duration { get; set; }
 
         public YouTubeVideo(string title, string author, string details, string videoThumb)
         {
