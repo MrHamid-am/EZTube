@@ -18,7 +18,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
-                    <Border CornerRadius="4" Background="{DynamicResource RedBrush}" BorderThickness="0"  Width="8" Margin="8,0,-2,0"/>
+                    <Border CornerRadius="4" Background="{DynamicResource RedBrush}" BorderThickness="0"  Width="8" Margin="0,0,-2,0"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
