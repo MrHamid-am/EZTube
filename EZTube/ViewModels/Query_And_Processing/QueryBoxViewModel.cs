@@ -29,19 +29,23 @@ namespace EZTube.ViewModels.Query_And_Processing
 
         public void StartDownload(string urlBox)//Caliburn.Micro Will Automatically get string From TextBox
         {
-            //Split Url List to Multiple Urls Without Repeating
-            var urlList = urlBox.Split(Environment.NewLine).Distinct().ToArray();
+            #region Temporary Codes
 
-            if (urlList.Length == 1)
-            {
+            //Split Url List to Multiple Urls Without Repeating
+            //var urlList = urlBox.Split(Environment.NewLine).Distinct().ToArray();
+
+            //if (urlList.Length == 1)
+            //{
                 //Send Message to ShellViewModel to Open SingleDownloadPage
-                _eventAggregator.PublishOnUIThread(PageOptions.OpenSingleDownloadPage);
-            }
-            else if (urlList.Length > 1)
-            {
+            //    _eventAggregator.PublishOnUIThread(PageOptions.OpenSingleDownloadPage);
+            //}
+            //else if (urlList.Length > 1)
+            //{
                 //Send Message to ShellViewModel to Open MultipleDownloadPage
-                _eventAggregator.PublishOnUIThread(PageOptions.OpenMultipleDownloadPage);
-            }
+                //_eventAggregator.PublishOnUIThread(PageOptions.OpenMultipleDownloadPage);
+            //}
+
+            #endregion
         }
     }
 }
