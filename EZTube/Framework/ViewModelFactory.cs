@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using Caliburn.Micro;
+using EZTube.Services;
 using EZTube.ViewModels.Query_And_Processing;
+using Unity;
 
 namespace EZTube.Framework
 {
@@ -10,14 +12,17 @@ namespace EZTube.Framework
     {
         private readonly IEventAggregator _eventAggregator;
 
+        [Dependency]
+        public IViewModelBinderFactory ViewModelBinderFactory { get; set; }
+
         public ViewModelFactory(IEventAggregator _eventAggregator)
         {
             this._eventAggregator = _eventAggregator;
         }
 
-        public QueryBoxViewModel CreateQueryBoxViewModel()
+        public QueryBoxViewModel CreateQueryBoxViewModel(QueryService queryService)
         {
-            var instance = new QueryBoxViewModel(_eventAggregator);
+            var instance = new QueryBoxViewModel(_eventAggregator,queryService, ViewModelBinderFactory);
 
             return instance;
         }
