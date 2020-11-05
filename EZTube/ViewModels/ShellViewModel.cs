@@ -4,6 +4,7 @@ using System.Text;
 using Caliburn.Micro;
 using EZTube.Framework;
 using EZTube.Models;
+using EZTube.Services;
 using EZTube.ViewModels.Pages;
 using EZTube.ViewModels.Query_And_Processing;
 using EZTube.Views.Pages;
@@ -11,7 +12,7 @@ using MaterialDesignThemes.Wpf;
 
 namespace EZTube.ViewModels
 {
-    public class ShellViewModel : IHandle<PageOptions>
+    public class ShellViewModel
     {
         private readonly IEventAggregator _eventAggregator;
         private readonly IViewModelFactory _viewModelFactory;
@@ -30,46 +31,9 @@ namespace EZTube.ViewModels
             _viewModelFactory = viewModelFactory;
             _viewModelBinderFactory = viewModelBinderFactory;
 
-            QueryBox = viewModelFactory.CreateQueryBoxViewModel();
-            QueryList = viewModelFactory.CreateQueryListViewModel();
-
-            //Subscribe To Pages Moving
-            _eventAggregator.Subscribe(this);
-        }
-
-        public void Handle(PageOptions message)
-        {
-            switch (message)
-            {
-                //Show Settings Page
-                case PageOptions.OpenSettings:
-                {
-                    //Get View From Settings ViewModel
-                    var view = _viewModelBinderFactory.CreateAndBindSettingsViewModel();
-
-                    //Show settings
-                    DialogHost.Show(view);
-                    break;
-                }
-
-                //Show SingleDownload Page
-                case PageOptions.OpenSingleDownloadPage:
-                {
-                    var view = _viewModelBinderFactory.CreateAndBindSingleDownloadViewModel();
-                    DialogHost.Show(view);
-
-                    break;
-                }
-
-                //Show MultipleDownloadPage
-                case PageOptions.OpenMultipleDownloadPage:
-                {
-                    var view = _viewModelBinderFactory.CreateAndBindMultipleDownloadViewModel();
-                    DialogHost.Show(view);
-
-                    break;
-                }
-            }
+            //Create ViewModels for Components
+            QueryBox = _viewModelFactory.CreateQueryBoxViewModel(new QueryService());
+            QueryList = _viewModelFactory.CreateQueryListViewModel();
         }
     }
 }
