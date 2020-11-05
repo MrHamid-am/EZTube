@@ -9,7 +9,7 @@ using Unity;
 
 namespace EZTube
 {
-    public class Bootstrapper:BootstrapperBase
+    public class Bootstrapper : BootstrapperBase
     {
         private IUnityContainer _container = new UnityContainer();
 
