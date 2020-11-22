@@ -12,9 +12,6 @@ namespace EZTube.Framework
     {
         private readonly IEventAggregator _eventAggregator;
 
-        [Dependency]
-        public IViewModelBinderFactory ViewModelBinderFactory { get; set; }
-
         public ViewModelFactory(IEventAggregator _eventAggregator)
         {
             this._eventAggregator = _eventAggregator;
@@ -22,7 +19,8 @@ namespace EZTube.Framework
 
         public QueryBoxViewModel CreateQueryBoxViewModel(QueryService queryService)
         {
-            var instance = new QueryBoxViewModel(_eventAggregator,queryService, ViewModelBinderFactory);
+            var viewModelBinderFactory = IoC.Get<IViewModelBinderFactory>();
+            var instance = new QueryBoxViewModel(_eventAggregator,queryService, viewModelBinderFactory);
 
             return instance;
         }
