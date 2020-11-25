@@ -24,4 +24,10 @@
     <PackageReference Include="YoutubeExplode.Converter" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="EZSettings">
+      <HintPath>..\..\EZSettings\EZSettings\bin\Release\netstandard2.0\EZSettings.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
