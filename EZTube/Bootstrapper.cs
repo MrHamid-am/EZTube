@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using Caliburn.Micro;
+using EZSettings;
 using EZTube.Framework;
+using EZTube.Models;
 using EZTube.ViewModels;
 using Unity;
+using Unity.Lifetime;
 
 namespace EZTube
 {
@@ -29,6 +32,16 @@ namespace EZTube
             _container.RegisterFactory<IViewFactory>(f => new ViewFactory());
             _container.RegisterFactory<IViewModelBinderFactory>(f => new ViewModelBinderFactory(_container.Resolve<IViewModelFactory>(),
                                                                                                             _container.Resolve<IViewFactory>()));
+
+            //Create Settings Manager
+            var settingsManager = new SettingsManager<DownloadSettings>(settingsConfiguration: new SettingsConfiguration()
+            {
+                FileName = "settings",
+                GiveErrorIfCannotLoad = true,
+                GiveErrorIfCannotSave = true,
+                IsAutoSave = true
+            });
+            _container.RegisterInstance(settingsManager,new SingletonLifetimeManager());
         }
 
         protected override void BuildUp(object instance)
