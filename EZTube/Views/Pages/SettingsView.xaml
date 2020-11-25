@@ -6,9 +6,13 @@
              xmlns:local="clr-namespace:EZTube.Views.Pages"
              xmlns:viewModels="clr-namespace:EZTube.ViewModels.Pages"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:converters="clr-namespace:EZTube.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              d:DataContext="{d:DesignInstance viewModels:SettingsViewModel}">
+    <UserControl.Resources>
+        <converters:ArrayToStringConverter x:Key="ArrayToStringConverter" Separator=","/>
+    </UserControl.Resources>
     <StackPanel Margin="15">
         <!--Title of Page-->
         <TextBlock Text="Settings"
@@ -20,19 +24,20 @@
         <StackPanel ToolTip="Set How Many Downloads Can be Active at One Time">
             <TextBlock Margin="16,10">
                 <Run Text="Maximum Current Downloads: "/>
-                <Run Text="{Binding MaxDownloads,Mode=OneWay}"
+                <Run Text="{Binding ElementName=MaxDownloads,Path=Value,Mode=OneWay}"
                      Foreground="{StaticResource RedBrush}"/>
             </TextBlock>
             <Slider x:Name="MaxDownloads"
                     Margin="16,0"
-                    Foreground="{StaticResource RedBrush}"/>
+                    Foreground="{StaticResource RedBrush}"
+                    Value="{Binding SettingsManager.Model.MaxConCurrentDownloads}"/>
         </StackPanel>
 
         <!--File Template Section-->
         <StackPanel ToolTip="Set Template to Generating Name for Downloaded Videos">
             <TextBlock Text="File Name Template"
                        Margin="16,10,16,0"/>
-            <ComboBox SelectedValue="{Binding FileNameTemplate}"
+            <ComboBox SelectedValue="{Binding Path=SettingsManager.Model.FileNameTemplate}"
                       SelectedValuePath="Content"
                       Margin="16,0"                      >
                 <ComboBoxItem Content="$title" />
@@ -45,7 +50,10 @@
         <!--Container Formats-->
         <TextBox materialDesign:HintAssist.Hint="Excluded Container Formats"
                  materialDesign:HintAssist.IsFloating="True"
-                 Margin="16,0,16,10">
+                 Margin="16,0,16,10"
+                 Text="{Binding SettingsManager.Model.ExcludedContainerFormats,
+                        Converter={StaticResource ArrayToStringConverter},
+                        UpdateSourceTrigger=PropertyChanged}">
             <TextBox.ToolTip>
                 <TextBlock>
                     <Run Text="Comma Separated List of Container Formats Excluded From Format List When Downloading a Video" />
@@ -76,28 +84,32 @@
                 </DockPanel.ToolTip>
                 <TextBlock Text="Auto-Update"
                            DockPanel.Dock="Left"/>
-                <ToggleButton DockPanel.Dock="Right"/>
+                <ToggleButton DockPanel.Dock="Right"
+                              IsChecked="{Binding SettingsManager.Model.IsAutoUpdate}"/>
             </DockPanel>
 
             <!--Dark Mode-->
             <DockPanel ToolTip="Use Darker Colors in UI">
                 <TextBlock Text="Dark Mode"
                            DockPanel.Dock="Left"/>
-                <ToggleButton DockPanel.Dock="Right"/>
+                <ToggleButton DockPanel.Dock="Right"
+                              IsChecked="{Binding SettingsManager.Model.IsDarkMode}"/>
             </DockPanel>
 
             <!--Inject Media Tags-->
             <DockPanel ToolTip="Media Tags Can Be Automatically inferred From Video Title And Injected into Output File">
                 <TextBlock Text="Automatically Inject Media Tags"
                            DockPanel.Dock="Left"/>
-                <ToggleButton DockPanel.Dock="Right"/>
+                <ToggleButton DockPanel.Dock="Right"
+                              IsChecked="{Binding SettingsManager.Model.InjectMediaTags}"/>
             </DockPanel>
 
             <!--Skip Downloads-->
             <DockPanel ToolTip="When Selecting Multiple Videos to Download Skip Those That Already Have Matching File in Directory">
                 <TextBlock Text="Skip Downloads for Files That Already Exist"
                            DockPanel.Dock="Left"/>
-                <ToggleButton DockPanel.Dock="Right"/>
+                <ToggleButton DockPanel.Dock="Right"
+                              IsChecked="{Binding SettingsManager.Model.SkipExistingFiles}"/>
             </DockPanel>
         </StackPanel>
     </StackPanel>
