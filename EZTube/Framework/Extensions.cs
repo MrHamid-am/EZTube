@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using Caliburn.Micro;
+using EZSettings;
+using EZTube.Models;
 using EZTube.ViewModels.Pages;
 using EZTube.Views.Pages;
 
@@ -11,7 +13,10 @@ namespace EZTube.Framework
     {
         public static SettingsViewModel CreateSettingsViewModel(this IViewModelFactory factory)
         {
-            return new SettingsViewModel();
+            //Get Settings Manager from Container
+            var settingsManager = IoC.Get<SettingsManager<DownloaderSettings>>();
+
+            return new SettingsViewModel(settingsManager);
         }
 
         #region SingleDownload
