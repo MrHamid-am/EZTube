@@ -34,7 +34,7 @@ namespace EZTube
                                                                                                             _container.Resolve<IViewFactory>()));
 
             //Create Settings Manager
-            var settingsManager = new SettingsManager<DownloadSettings>(settingsConfiguration: new SettingsConfiguration()
+            var settingsManager = new SettingsManager<DownloaderSettings>(settingsConfiguration: new SettingsConfiguration()
             {
                 FileName = "settings",
                 GiveErrorIfCannotLoad = true,

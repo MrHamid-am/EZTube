@@ -10,9 +10,9 @@ namespace EZTube.ViewModels.Pages
 {
     public class SettingsViewModel:Screen
     {
-        private readonly SettingsManager<DownloadSettings> _settingsManager;
+        private readonly SettingsManager<DownloaderSettings> _settingsManager;
 
-        public SettingsViewModel(SettingsManager<DownloadSettings> settingsManager)
+        public SettingsViewModel(SettingsManager<DownloaderSettings> settingsManager)
         {
             _settingsManager = settingsManager;
         }

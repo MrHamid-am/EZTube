@@ -8,13 +8,13 @@ using YoutubeExplode.Videos.Streams;
 
 namespace EZTube.Models
 {
-    public class DownloadSettings : INotifyPropertyChanged
+    public class DownloaderSettings : INotifyPropertyChanged
     {
-        public int MaxConCurrentDownloads { get; set; } = 2;
+        public int MaxConCurrentDownloads { get; set; } = 3;
 
         public string FileNameTemplate { get; set; }
 
-        public IReadOnlyList<string> ExcludedContainerFormats { get; set; }
+        public IReadOnlyList<string> ExcludedContainerFormats { get; set; } = Array.Empty<string>();
 
         public bool IsAutoUpdate { get; set; } = true;
 
