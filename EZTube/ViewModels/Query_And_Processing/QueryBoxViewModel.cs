@@ -30,8 +30,9 @@ namespace EZTube.ViewModels.Query_And_Processing
 
         public void Settings()
         {
-            //Send Message to ShellViewModel to Open Settings Page
-            _eventAggregator.PublishOnUIThread(PageOptions.OpenSettings);
+            //Get And Bind Settings View to its View Model
+            var view = _binderFactory.CreateAndBindSettingsViewModel();
+            DialogHost.Show(view);
         }
 
         public async void StartDownload(string urlBox)//Caliburn.Micro Will Automatically get string From TextBox
