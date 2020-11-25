@@ -10,18 +10,14 @@ namespace EZTube.ViewModels.Pages
 {
     public class SettingsViewModel:Screen
     {
-        private readonly SettingsManager<DownloaderSettings> _settingsManager;
+        public SettingsManager<DownloaderSettings> SettingsManager { get; }
 
         public SettingsViewModel(SettingsManager<DownloaderSettings> settingsManager)
         {
-            _settingsManager = settingsManager;
-        }
+            SettingsManager = settingsManager;
 
-        protected override void OnViewLoaded(object view)
-        {
-            //Load Settings When View is Ready
-            _settingsManager.LoadSettings();
-            base.OnViewLoaded(view);
+            //Load Settings
+            SettingsManager?.LoadSettings();
         }
     }
 }
