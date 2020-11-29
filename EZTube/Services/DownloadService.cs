@@ -95,5 +95,14 @@ namespace EZTube.Services
 
             return options.ToArray();
         }
+
+        public async Task<IReadOnlyList<SubtitleDownloadOption>> GetSubtitleOptionsAsync(string videoId)
+        {
+            //Get Information About Available Subtitles for Video
+            var closedCaptionManifest = await _youtube.Videos.ClosedCaptions.GetManifestAsync(videoId);
+
+            return closedCaptionManifest.Tracks.Select(t => new SubtitleDownloadOption(t))
+                .ToArray();
+        }
     }
 }
