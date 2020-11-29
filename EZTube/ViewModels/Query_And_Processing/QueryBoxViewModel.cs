@@ -47,20 +47,20 @@ namespace EZTube.ViewModels.Query_And_Processing
 
             //if (urlList.Length == 1)
             //{
-                //Send Message to ShellViewModel to Open SingleDownloadPage
+            //Send Message to ShellViewModel to Open SingleDownloadPage
             //    _eventAggregator.PublishOnUIThread(PageOptions.OpenSingleDownloadPage);
             //}
             //else if (urlList.Length > 1)
             //{
-                //Send Message to ShellViewModel to Open MultipleDownloadPage
-                //_eventAggregator.PublishOnUIThread(PageOptions.OpenMultipleDownloadPage);
+            //Send Message to ShellViewModel to Open MultipleDownloadPage
+            //_eventAggregator.PublishOnUIThread(PageOptions.OpenMultipleDownloadPage);
             //}
 
             #endregion
 
             //Parse URLs into Separated Queries
             var parsedQueries = _queryService.ParseMultilineQuery(urlBox);
-            
+
             //Execute Separated Queries
             var executedQueries = await _queryService.ExecuteMultiQueriesAsync(parsedQueries);
 
@@ -71,7 +71,11 @@ namespace EZTube.ViewModels.Query_And_Processing
             if (videos.Length == 1)
             {
                 var video = videos[0];
-                
+
+                //Get Video Available Options
+                var downloadOptions = await _downloadService.GetVideoOptionAsync(video.Id);
+
+                //Display Single Download Dialog
                 var view = _binderFactory.CreateAndBindSingleDownloadViewModel();
                 await DialogHost.Show(view);
             }
