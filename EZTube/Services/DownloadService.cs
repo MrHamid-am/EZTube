@@ -24,7 +24,7 @@ namespace EZTube.Services
         }
 
         //Get Ordered Available Video Options
-        public async Task<IReadOnlyList<VideoDownloadOption>> GetVideoOptionAsync(string videoId)
+        public async Task<IReadOnlyList<VideoDownloadOption>> GetVideoOptionsAsync(string videoId)
         {
             //Get Information About Available Video Streams
             var streamManifest = await _youtube.Videos.Streams.GetManifestAsync(videoId);
