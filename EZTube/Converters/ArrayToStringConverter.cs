@@ -20,11 +20,12 @@ namespace EZTube.Converters
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
+         {
             if (value is string str)
             {
                 var array = str.Split(Separator)
                     .Select(s => s.Trim())
+                    .Where(s=> s is not " ")
                     .ToArray();
 
                 return array;
