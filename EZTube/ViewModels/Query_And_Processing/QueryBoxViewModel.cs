@@ -16,16 +16,19 @@ namespace EZTube.ViewModels.Query_And_Processing
         private readonly IEventAggregator _eventAggregator;
         private readonly QueryService _queryService;
         private readonly IViewModelBinderFactory _binderFactory;
+        private readonly DownloadService _downloadService;
 
         public bool IsIndeterminate { get; set; } = true;
 
         public QueryBoxViewModel(IEventAggregator eventAggregator,
             QueryService queryService,
-            IViewModelBinderFactory binderFactory)
+            IViewModelBinderFactory binderFactory,
+            DownloadService downloadService)
         {
             _eventAggregator = eventAggregator;
             _queryService = queryService;
             _binderFactory = binderFactory;
+            _downloadService = downloadService;
         }
 
         public void Settings()
@@ -68,7 +71,7 @@ namespace EZTube.ViewModels.Query_And_Processing
             if (videos.Length == 1)
             {
                 var video = videos[0];
-
+                
                 var view = _binderFactory.CreateAndBindSingleDownloadViewModel();
                 await DialogHost.Show(view);
             }

@@ -19,8 +19,12 @@ namespace EZTube.Framework
 
         public QueryBoxViewModel CreateQueryBoxViewModel(QueryService queryService)
         {
-            var viewModelBinderFactory = IoC.Get<IViewModelBinderFactory>();
-            var instance = new QueryBoxViewModel(_eventAggregator,queryService, viewModelBinderFactory);
+            var instance = new QueryBoxViewModel(
+                _eventAggregator,
+                queryService, 
+                IoC.Get<IViewModelBinderFactory>(),
+                IoC.Get<DownloadService>()
+                );
 
             return instance;
         }
