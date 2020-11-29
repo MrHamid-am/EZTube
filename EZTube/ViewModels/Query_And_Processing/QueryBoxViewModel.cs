@@ -75,6 +75,9 @@ namespace EZTube.ViewModels.Query_And_Processing
                 //Get Video Available Options
                 var downloadOptions = await _downloadService.GetVideoOptionsAsync(video.Id);
 
+                //Get Subtitle Available Options
+                var subtitleOptions = await _downloadService.GetSubtitleOptionsAsync(video.Id);
+
                 //Display Single Download Dialog
                 var view = _binderFactory.CreateAndBindSingleDownloadViewModel();
                 await DialogHost.Show(view);
