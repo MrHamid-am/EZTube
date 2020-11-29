@@ -6,6 +6,7 @@ using Caliburn.Micro;
 using EZSettings;
 using EZTube.Framework;
 using EZTube.Models;
+using EZTube.Services;
 using EZTube.ViewModels;
 using Unity;
 using Unity.Lifetime;
@@ -41,7 +42,12 @@ namespace EZTube
                 GiveErrorIfCannotSave = true,
                 IsAutoSave = true
             });
+            settingsManager.LoadSettings();
+
             _container.RegisterInstance(settingsManager,new SingletonLifetimeManager());
+
+            //Register Other Instances
+            _container.RegisterSingleton<DownloadService>();
         }
 
         protected override void BuildUp(object instance)
