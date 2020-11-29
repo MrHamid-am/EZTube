@@ -15,9 +15,6 @@ namespace EZTube.ViewModels.Pages
         public SettingsViewModel(SettingsManager<DownloaderSettings> settingsManager)
         {
             SettingsManager = settingsManager;
-
-            //Load Settings
-            SettingsManager?.LoadSettings();
         }
     }
 }
